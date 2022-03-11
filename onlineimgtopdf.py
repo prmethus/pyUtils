@@ -28,9 +28,9 @@ def download_imgs(urls):
 def images_to_pdf(img_files):
     images = []
     for img_file in img_files:
-	newimg = PIL.Image.open(img_file)
-	imgfile = Image.new("RGB", newimg.size, (0,0,0))
-	imgfile.paste(newimg, mask=newimg.split()[3])
+        newimg = PIL.Image.open(img_file)
+        imgfile = PIL.Image.new("RGB", newimg.size, (0,0,0))
+        imgfile.paste(newimg, mask=newimg.split()[3])
         images.append(imgfile)
 	
     images[0].save(input(str("Enter PDF file name: ")), save_all=True, append_images=images[1:])
